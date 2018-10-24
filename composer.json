@@ -1,5 +1,5 @@
 {
-    "name": "php-translation/flysystem-adapter",
+    "name": "topgeschenken/php-translation-flysystem-adapter",
     "description": "Adapter for flysystem.",
     "license": "MIT",
     "authors": [
