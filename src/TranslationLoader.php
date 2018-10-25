@@ -21,7 +21,7 @@ use Symfony\Component\Translation\Reader\TranslationReaderInterface;
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-final class TranslationLoader implements \Symfony\Component\Translation\Reader\TranslationReaderInterface
+final class TranslationLoader implements TranslationReaderInterface
 {
     /**
      * Loaders used for import.

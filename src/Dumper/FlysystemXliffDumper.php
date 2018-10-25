@@ -105,7 +105,8 @@ final class FlysystemXliffDumper extends XliffFileDumper
                 }
             }
             // save file
-            $this->filesystem->put($fullpath, $this->formatCatalogue($messages, $domain, $options));
+            $filesystemPrefix = realpath($this->filesystem->getAdapter()->getPathPrefix()) . '/';
+            $this->filesystem->put(str_replace($filesystemPrefix, '', $fullpath), $this->formatCatalogue($messages, $domain, $options));
         }
     }
 
