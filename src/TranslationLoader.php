@@ -14,13 +14,14 @@ namespace Translation\PlatformAdapter\Flysystem;
 use League\Flysystem\Filesystem;
 use Symfony\Component\Translation\MessageCatalogue;
 use Symfony\Component\Translation\Loader\LoaderInterface;
+use Symfony\Component\Translation\Reader\TranslationReaderInterface;
 
 /**
  * TranslationLoader loads translation messages from translation files.
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-final class TranslationLoader implements \Translation\SymfonyStorage\TranslationLoader
+final class TranslationLoader implements \Symfony\Component\Translation\Reader\TranslationReaderInterface
 {
     /**
      * Loaders used for import.
@@ -59,7 +60,7 @@ final class TranslationLoader implements \Translation\SymfonyStorage\Translation
      * @param string           $directory the directory to look into
      * @param MessageCatalogue $catalogue the catalogue
      */
-    public function loadMessages($directory, MessageCatalogue $catalogue)
+    public function read($directory, MessageCatalogue $catalogue)
     {
         if (!$this->filesystem->has($directory)) {
             return;

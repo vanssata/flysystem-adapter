@@ -1,3 +1,17 @@
+# Fork modified
+
+Source: https://github.com/php-translation/flysystem-adapter
+Updated:
+- Custom Flysystem storage for remote file checks instead of local
+- Updated Flysystem function names
+- Updated local filesystem checks for resources
+
+Commands:
+```bash
+php bin/console translation:download remote --cache
+php bin/console translation:sync remote down
+```
+
 # Adapter for Flysystem
 
 [![Latest Version](https://img.shields.io/github/release/php-translation/flysystem-adapter.svg?style=flat-square)](https://github.com/php-translation/flysystem-adapter/releases)

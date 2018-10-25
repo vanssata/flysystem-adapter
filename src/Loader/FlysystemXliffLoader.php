@@ -49,8 +49,9 @@ final class FlysystemXliffLoader extends XliffLoader
         $catalogue = new MessageCatalogue($locale);
         $this->extractFromContent($this->filesystem->read($resource), $catalogue, $domain);
 
-        if (class_exists('Symfony\Component\Config\Resource\FileResource')) {
-            $catalogue->addResource(new FileResource($resource));
+        if (class_exists('Symfony\Component\Config\Resource\FileResource') && 
+            file_exists($this->filesystem->getAdapter()->getPathPrefix() . $resource)) {
+            $catalogue->addResource(new FileResource($this->filesystem->getAdapter()->getPathPrefix() . $resource));
         }
 
         return $catalogue;

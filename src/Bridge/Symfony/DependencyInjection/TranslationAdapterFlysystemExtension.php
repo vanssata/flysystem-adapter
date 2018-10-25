@@ -19,7 +19,8 @@ use Translation\PlatformAdapter\Flysystem\Dumper\FlysystemXliffDumper;
 use Translation\PlatformAdapter\Flysystem\Flysystem;
 use Translation\PlatformAdapter\Flysystem\Loader\FlysystemXliffLoader;
 use Translation\PlatformAdapter\Flysystem\TranslationLoader;
-use Translation\SymfonyStorage\FileStorage;
+// use Translation\SymfonyStorage\FileStorage;
+use Translation\PlatformAdapter\Flysystem\FlysystemStorage;
 
 /**
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
@@ -52,7 +53,8 @@ class TranslationAdapterFlysystemExtension extends Extension
                 ->addMethodCall('addLoader', ['xlf', $xlfLoaderDef]);
 
             // Register our file storage.
-            $fileStorageDef = $container->register($baseServiceId, FileStorage::class);
+            // $fileStorageDef = $container->register($baseServiceId, FileStorage::class);
+            $fileStorageDef = $container->register($baseServiceId, FlysystemStorage::class);
             $fileStorageDef
                 ->addArgument($writerDef)
                 ->addArgument($loaderDef)
