@@ -17,11 +17,11 @@ use Symfony\Component\Translation\Loader\LoaderInterface;
 use Symfony\Component\Translation\Reader\TranslationReaderInterface;
 
 /**
- * TranslationLoader loads translation messages from translation files.
+ * TranslationReader reeds translation messages from translation files.
  *
  * @author Tobias Nyholm <tobias.nyholm@gmail.com>
  */
-final class TranslationLoader implements TranslationReaderInterface
+final class TranslationReader implements TranslationReaderInterface
 {
     /**
      * Loaders used for import.
