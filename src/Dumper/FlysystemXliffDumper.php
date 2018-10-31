@@ -89,12 +89,7 @@ final class FlysystemXliffDumper extends XliffFileDumper
         foreach ($messages->getDomains() as $domain) {
             // backup
             $fullpath = $options['path'].'/'.$this->getRelativePath($domain, $messages->getLocale());
-            if ($this->filesystem->has($fullpath)) {
-                if ($this->backup) {
-                    @trigger_error('Creating a backup while dumping a message catalogue is deprecated since version 3.1 and will be removed in 4.0. Use TranslationWriter::disableBackup() to disable the backup.', E_USER_DEPRECATED);
-                    $this->filesystem->copy($fullpath, $fullpath.'~');
-                }
-            } else {
+            if (!$this->filesystem->has($fullpath)) {
                 $directory = dirname($fullpath);
                 if (!$this->filesystem->has($directory) && !@mkdir($directory, 0777, true)) {
                     try {
