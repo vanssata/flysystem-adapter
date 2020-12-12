@@ -1,5 +1,5 @@
 {
-    "name": "php-translation/flysystem-adapter",
+    "name": "vanssata/flysystem-adapter",
     "description": "Adapter for flysystem.",
     "license": "MIT",
     "authors": [
